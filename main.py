@@ -7,13 +7,12 @@ app = FastAPI()
 
 # Credentials will be fetched from environment variables on Render
 # This is a secure way to handle secrets in production
-client_id = os.environ.get('3f515c0055b6493e9de012390f59b016')
-client_secret = os.environ.get('970b615090364e45a35648529045abe9')
+client_id = os.environ.get('SPOTIPY_CLIENT_ID')
+client_secret = os.environ.get('SPOTIPY_CLIENT_SECRET')
 
 # Add a check to make sure they're not empty
 if not client_id or not client_secret:
     print("Error: SPOTIPY_CLIENT_ID or SPOTIPY_CLIENT_SECRET environment variable not set.")
-    # Exit early or handle this error gracefully. Render's build will fail if this happens.
     exit(1)
 
 # Initialize Spotify client
